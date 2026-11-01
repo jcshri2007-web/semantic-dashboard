@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - Ops Dashboard</title>
+  <link rel="stylesheet" href="components/base.css">
+  <link rel="stylesheet" href="components/layout.css">
+  <link rel="stylesheet" href="components/table.css">
+  <link rel="stylesheet" href="components/form.css">
+  <link rel="stylesheet" href="components/modal.css">
+  <script src="components/modal.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <p class="brand">Ops Dashboard</p>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="employees.html">Employees</a></li>
+        <li><a href="settings.html" aria-current="page">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <h2 id="sidebar-title">Shortcuts</h2>
+      <nav aria-label="On this page">
+        <ul>
+          <li><a href="#profile">Account settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <h1>Settings</h1>
+      <p id="status" role="status" class="status"></p>
+
+      <section id="profile" aria-labelledby="profile-title">
+        <h2 id="profile-title">Account settings</h2>
+        <form action="settings.html" method="post" data-status-target="status" data-status-message="Settings saved. This is a demo, so nothing is stored.">
+          <fieldset>
+            <legend>Profile</legend>
+            <div class="field">
+              <label for="display-name">Display name</label>
+              <input id="display-name" name="display_name" type="text" required minlength="2" maxlength="40" autocomplete="nickname">
+            </div>
+            <div class="field">
+              <label for="account-email">Email address</label>
+              <input id="account-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="phone">Phone number (optional)</label>
+              <span id="phone-hint" class="hint">Digits, spaces and a leading plus sign only.</span>
+              <input id="phone" name="phone" type="tel" pattern="[0-9 +]{7,15}" title="7 to 15 digits, spaces or plus signs" aria-describedby="phone-hint" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="bio">Short bio</label>
+              <span id="bio-hint" class="hint">Up to 200 characters.</span>
+              <textarea id="bio" name="bio" rows="4" maxlength="200" aria-describedby="bio-hint"></textarea>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Email notifications</legend>
+            <div class="choice"><input id="n-tickets" type="checkbox" name="notify" value="tickets" checked><label for="n-tickets">Ticket updates</label></div>
+            <div class="choice"><input id="n-reports" type="checkbox" name="notify" value="reports"><label for="n-reports">Weekly reports</label></div>
+            <div class="choice"><input id="n-news" type="checkbox" name="notify" value="news"><label for="n-news">Product news</label></div>
+          </fieldset>
+          <fieldset>
+            <legend>Text size</legend>
+            <div class="choice"><input id="size-normal" type="radio" name="size" value="normal" checked><label for="size-normal">Normal</label></div>
+            <div class="choice"><input id="size-large" type="radio" name="size" value="large"><label for="size-large">Large</label></div>
+          </fieldset>
+          <div class="actions">
+            <button type="reset" class="btn">Reset</button>
+            <button type="submit" class="btn btn-primary">Save settings</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Ops Dashboard demo project. Built with semantic HTML5 and WCAG 2.1 in mind.</p>
+  </footer>
+</body>
+</html>

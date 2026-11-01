@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Ops Dashboard</title>
+  <link rel="stylesheet" href="components/base.css">
+  <link rel="stylesheet" href="components/layout.css">
+  <link rel="stylesheet" href="components/table.css">
+  <link rel="stylesheet" href="components/form.css">
+  <link rel="stylesheet" href="components/modal.css">
+  <script src="components/modal.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <p class="brand">Ops Dashboard</p>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="employees.html">Employees</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <h2 id="sidebar-title">Shortcuts</h2>
+      <nav aria-label="On this page">
+        <ul>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#activity">Recent activity</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <h1>Dashboard</h1>
+
+      <section id="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Summary</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Open tickets</h3>
+            <p class="figure">128</p>
+            <p>12 more than last week</p>
+          </article>
+          <article class="card">
+            <h3>Resolved today</h3>
+            <p class="figure">34</p>
+            <p>Average resolution time 3.2 hours</p>
+          </article>
+          <article class="card">
+            <h3>Team members</h3>
+            <p class="figure">18</p>
+            <p>2 new this month</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="activity" aria-labelledby="activity-title">
+        <h2 id="activity-title">Recent activity</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Latest ticket updates, newest first</caption>
+            <thead>
+              <tr>
+                <th scope="col">Ticket</th>
+                <th scope="col">Title</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Status</th>
+                <th scope="col">Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">T-1042</th><td>Login page timeout</td><td>Asha Nair</td><td>In progress</td><td><time datetime="2026-10-30">30 Oct 2026</time></td></tr>
+              <tr><th scope="row">T-1041</th><td>Export report fails</td><td>Rahul Menon</td><td>Open</td><td><time datetime="2026-10-29">29 Oct 2026</time></td></tr>
+              <tr><th scope="row">T-1039</th><td>Update footer links</td><td>Meera Pillai</td><td>Resolved</td><td><time datetime="2026-10-29">29 Oct 2026</time></td></tr>
+              <tr><th scope="row">T-1037</th><td>Add keyboard shortcuts</td><td>Arjun Das</td><td>In progress</td><td><time datetime="2026-10-28">28 Oct 2026</time></td></tr>
+              <tr><th scope="row">T-1035</th><td>Fix table header contrast</td><td>Asha Nair</td><td>Resolved</td><td><time datetime="2026-10-27">27 Oct 2026</time></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Ops Dashboard demo project. Built with semantic HTML5 and WCAG 2.1 in mind.</p>
+  </footer>
+</body>
+</html>

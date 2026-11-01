@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employees - Ops Dashboard</title>
+  <link rel="stylesheet" href="components/base.css">
+  <link rel="stylesheet" href="components/layout.css">
+  <link rel="stylesheet" href="components/table.css">
+  <link rel="stylesheet" href="components/form.css">
+  <link rel="stylesheet" href="components/modal.css">
+  <script src="components/modal.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <p class="brand">Ops Dashboard</p>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="employees.html" aria-current="page">Employees</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-labelledby="sidebar-title">
+      <h2 id="sidebar-title">Shortcuts</h2>
+      <nav aria-label="On this page">
+        <ul>
+          <li><a href="#directory">Team directory</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <h1>Employees</h1>
+      <p id="status" role="status" class="status"></p>
+
+      <section id="directory" aria-labelledby="directory-title">
+        <h2 id="directory-title">Team directory</h2>
+        <div class="toolbar">
+          <form role="search" action="employees.html" method="get" class="search">
+            <input type="search" name="q" aria-label="Search employees by name" maxlength="60">
+            <button type="submit" class="btn">Search</button>
+          </form>
+          <button type="button" class="btn btn-primary" data-open-modal="add-dialog">Add employee</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>Current employees</caption>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Start date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Asha Nair</th><td>Engineering</td><td>Frontend developer</td><td><time datetime="2023-02-13">13 Feb 2023</time></td><td><button type="button" class="btn btn-danger" data-open-modal="remove-dialog" data-name="Asha Nair" aria-label="Remove Asha Nair">Remove</button></td></tr>
+              <tr><th scope="row">Rahul Menon</th><td>Engineering</td><td>Backend developer</td><td><time datetime="2022-08-01">1 Aug 2022</time></td><td><button type="button" class="btn btn-danger" data-open-modal="remove-dialog" data-name="Rahul Menon" aria-label="Remove Rahul Menon">Remove</button></td></tr>
+              <tr><th scope="row">Meera Pillai</th><td>Design</td><td>Accessibility specialist</td><td><time datetime="2024-01-08">8 Jan 2024</time></td><td><button type="button" class="btn btn-danger" data-open-modal="remove-dialog" data-name="Meera Pillai" aria-label="Remove Meera Pillai">Remove</button></td></tr>
+              <tr><th scope="row">Arjun Das</th><td>Support</td><td>Support lead</td><td><time datetime="2021-05-17">17 May 2021</time></td><td><button type="button" class="btn btn-danger" data-open-modal="remove-dialog" data-name="Arjun Das" aria-label="Remove Arjun Das">Remove</button></td></tr>
+              <tr><th scope="row">Sneha Kurian</th><td>Operations</td><td>Operations analyst</td><td><time datetime="2025-03-03">3 Mar 2025</time></td><td><button type="button" class="btn btn-danger" data-open-modal="remove-dialog" data-name="Sneha Kurian" aria-label="Remove Sneha Kurian">Remove</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <dialog id="add-dialog" aria-labelledby="add-title">
+        <h2 id="add-title">Add employee</h2>
+        <form method="dialog" data-status-target="status" data-status-message="Employee added. This is a demo, so nothing is saved.">
+          <fieldset>
+            <legend>Personal details</legend>
+            <div class="field">
+              <label for="emp-name">Full name</label>
+              <input id="emp-name" name="name" type="text" required minlength="2" maxlength="60" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="emp-email">Work email</label>
+              <input id="emp-email" name="email" type="email" required autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="emp-id">Employee ID</label>
+              <span id="emp-id-hint" class="hint">Two capital letters followed by four digits, for example AB1234.</span>
+              <input id="emp-id" name="employee_id" type="text" required pattern="[A-Z]{2}[0-9]{4}" title="Two capital letters followed by four digits, for example AB1234" aria-describedby="emp-id-hint" autocomplete="off">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Role details</legend>
+            <div class="field">
+              <label for="emp-dept">Department</label>
+              <select id="emp-dept" name="department" required>
+                <option value="">Choose a department</option>
+                <option value="engineering">Engineering</option>
+                <option value="design">Design</option>
+                <option value="support">Support</option>
+                <option value="operations">Operations</option>
+              </select>
+            </div>
+            <fieldset>
+              <legend>Employment type</legend>
+              <div class="choice"><input id="type-full" type="radio" name="type" value="full-time" required><label for="type-full">Full-time</label></div>
+              <div class="choice"><input id="type-part" type="radio" name="type" value="part-time"><label for="type-part">Part-time</label></div>
+              <div class="choice"><input id="type-contract" type="radio" name="type" value="contract"><label for="type-contract">Contract</label></div>
+            </fieldset>
+            <div class="field">
+              <label for="emp-start">Start date</label>
+              <input id="emp-start" name="start_date" type="date" required>
+            </div>
+          </fieldset>
+          <div class="actions">
+            <button type="button" class="btn" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary">Add employee</button>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="remove-dialog" aria-labelledby="remove-title" aria-describedby="remove-text">
+        <h2 id="remove-title">Remove employee</h2>
+        <p id="remove-text">Remove <strong data-modal-name>this employee</strong> from the directory?</p>
+        <form method="dialog" data-status-target="status" data-status-message="Removal confirmed. This is a demo, so nothing is changed.">
+          <div class="actions">
+            <button type="button" class="btn" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-danger">Remove</button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Ops Dashboard demo project. Built with semantic HTML5 and WCAG 2.1 in mind.</p>
+  </footer>
+</body>
+</html>
